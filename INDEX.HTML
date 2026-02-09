@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Basket Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="marcador-general">
+    <div class="puntos-l">
+        <input type="text" id="nombreEquipoL" value="LOCAL" onchange="guardarNombresEquipos()" class="input-equipo">
+        <span id="totalL">0</span>
+    </div>
+    <div style="font-size: 40px;">-</div>
+    <div class="puntos-v">
+        <span id="totalV">0</span>
+        <input type="text" id="nombreEquipoV" value="VISITANTE" onchange="guardarNombresEquipos()" class="input-equipo">
+    </div>
+</div>
+
+<div style="margin-bottom: 20px;">
+    <button onclick="deshacer()" class="btn-deshacer">↩️ Deshacer última acción</button>
+</div>
+
+    <div class="config">
+        <input type="text" id="nombreI" placeholder="Nombre...">
+        <select id="equipoI">
+            <option value="Local">Local</option>
+            <option value="Visitante">Visitante</option>
+        </select>
+        <button onclick="crearJugador()" class="btn-add">Añadir Jugador</button>
+    </div>
+
+    <div class="cancha">
+        <div class="columna">
+            <h2 style="color: var(--local)">EQUIPO LOCAL</h2>
+            <div id="listaL"></div>
+        </div>
+        <div class="columna">
+            <h2 style="color: var(--visitante)">EQUIPO VISITANTE</h2>
+            <div id="listaV"></div>
+        </div>
+    </div>
+
+    <h2>Mapa de Tiros</h2>
+    <div class="court-controls">
+        <select id="jugadorShotSelect"><option value="">Selecciona jugador</option></select>
+        <button onclick="registrarTiro(2, true)">+2 HECHO</button>
+        <button onclick="registrarTiro(3, true)">+3 HECHO</button>
+        <button onclick="registrarTiro(2, false)" style="background:#c0392b">-2 FALLO</button>
+        <button onclick="registrarTiro(3, false)" style="background:#c0392b">-3 FALLO</button>
+    </div>
+    
+    <div class="shot-chart-container" id="shotChart"></div>
+    <div class="historial" id="historial">Últimas jugadas...</div>
+
+    <script src="script.js"></script>
+
+    <div class="seccion-final">
+    <h2>Resumen Estadístico</h2>
+    <div class="tabla-contenedor">
+        <table id="tablaResumen">
+            <thead>
+                <tr>
+                    <th>Jugador</th>
+                    <th>PTS</th>
+                    <th>REB</th>
+                    <th>PER</th>
+                    <th>% Tiro 2</th>
+                    <th>% Tiro 3</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+                </tbody>
+        </table>
+    </div>
+    
+    <div class="botones-exportar">
+        <button onclick="exportarPartido()" class="btn-exportar">📤 Exportar Resumen (WhatsApp/Texto)</button>
+        <button onclick="borrarTodo()" class="btn-borrar">🗑️ Reiniciar Todo el Partido</button>
+    </div>
+    <div class="config">
+    <button onclick="descargarArchivoJSON()" class="btn-archivo">💾 Guardar Backup</button>
+    <label for="subirArchivo" class="btn-archivo" style="cursor:pointer">📂 Cargar Backup</label>
+    <input type="file" id="subirArchivo" style="display:none" onchange="cargarArchivoJSON(event)">
+</div>
+</div>
+</body>
+</html>

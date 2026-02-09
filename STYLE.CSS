@@ -1,0 +1,91 @@
+:root { --local: #3498db; --visitante: #e74c3c; }
+body { font-family: 'Segoe UI', sans-serif; background-color: #121212; color: white; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+
+.marcador-general { display: flex; gap: 40px; background: #1e1e1e; padding: 20px 50px; border-radius: 15px; border-bottom: 4px solid #e67e22; margin-bottom: 20px; font-size: 32px; font-weight: bold; }
+.puntos-l { color: var(--local); }
+.puntos-v { color: var(--visitante); }
+
+.config { background: #1e1e1e; padding: 20px; border-radius: 10px; margin-bottom: 20px; display: flex; gap: 10px; }
+input, select { padding: 10px; border-radius: 5px; border: none; }
+
+.cancha { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 1200px; }
+.columna { background: #1a1a1a; padding: 15px; border-radius: 10px; min-height: 400px; }
+
+.tarjeta-jugador { background: white; color: #333; margin-bottom: 15px; padding: 12px; border-radius: 8px; border-left: 5px solid #e67e22; }
+
+.controles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+button { border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; color: Srgb(0, 0, 0); }
+.btn-add { background: #27ae60; }
+.btn-sub { background: #95a5a6; }
+.btn-reb { background: #3498db; }
+.btn-per { background: #e74c3c; } 
+
+.shot-chart-container {
+    width: 500px; height: 470px;
+    background-image: url('https://image.shutterstock.com/image-vector/basketball-court-top-view-vector-260nw-2480664679.jpg');
+    background-size: 100% 100%; position: relative; border-radius: 10px; margin: 20px auto; cursor: crosshair; border: 2px solid #e67e22;
+}
+
+.shot-marker { position: absolute; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%, -50%); border: 1px solid black; }
+.shot-marker.made { background: rgba(0, 255, 0, 0.8); }
+.shot-marker.miss { background: rgba(255, 0, 0, 0.8); }
+
+.historial { position: fixed; bottom: 20px; right: 20px; width: 250px; background: #1e1e1e; padding: 15px; border-radius: 10px; max-height: 200px; overflow-y: auto; font-size: 12px; }
+.seccion-final { width: 100%; max-width: 800px; margin-top: 40px; background: #1e1e1e; padding: 20px; border-radius: 15px; }
+
+.tabla-contenedor { overflow-x: auto; margin-top: 15px; }
+
+table { width: 100%; border-collapse: collapse; background: white; color: #333; border-radius: 10px; overflow: hidden; }
+
+th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
+
+th { background-color: #2c3e50; color: white; text-transform: uppercase; font-size: 13px; }
+
+tr:nth-child(even) { background-color: #f2f2f2; }
+
+.botones-exportar { display: flex; gap: 15px; margin-top: 20px; justify-content: center; }
+
+.btn-exportar { background-color: #27ae60; padding: 15px 30px; font-size: 16px; flex: 2; }
+
+.btn-borrar { background-color: #c0392b; padding: 15px; flex: 1; }
+.input-equipo {
+    background: transparent;
+    border: none;
+    border-bottom: 2px dashed #555;
+    color: inherit;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.input-equipo:focus {
+    outline: none;
+    border-bottom-color: #e67e22;
+}
+
+.btn-deshacer {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: 0.2s;
+}
+
+.btn-deshacer:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.btn-archivo {
+    background-color: #8e44ad; /* Color morado para diferenciarlo */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 5px;
+}
